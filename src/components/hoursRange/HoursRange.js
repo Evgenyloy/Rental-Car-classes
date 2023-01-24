@@ -1,17 +1,17 @@
-import { Component } from 'react'
+import { Component } from 'react';
 
 class HouseRange extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       rangeValue: '2',
-    }
+    };
   }
 
   onChangeValue = (e) => {
-    this.setState({ rangeValue: e.target.value })
-    this.props.onTimeChange(e.target.value)
-  }
+    this.setState({ rangeValue: e.target.value });
+    this.props.onTimeChange(e.target.value);
+  };
 
   render() {
     return (
@@ -36,8 +36,8 @@ class HouseRange extends Component {
           </output>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default HouseRange
+export default HouseRange;

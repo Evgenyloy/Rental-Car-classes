@@ -1,7 +1,7 @@
 const Options = ({ option, onOptionsSelect }) => {
   const optionsSelect = (e) => {
-    onOptionsSelect(e.target.dataset.id, e.target.id)
-  }
+    onOptionsSelect(e.target.dataset.id, e.target.id);
+  };
 
   const optionElement = option.map(({ name, id, description }) => {
     return (
@@ -20,15 +20,15 @@ const Options = ({ option, onOptionsSelect }) => {
           {description}
         </label>
       </div>
-    )
-  })
+    );
+  });
 
   return (
     <div className="form__item">
       <div className="form__item-header">Extra options</div>
       <div className="option">{optionElement}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Options
+export default Options;

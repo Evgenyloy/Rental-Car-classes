@@ -4,11 +4,11 @@ const Rate = ({ onRateSelected }) => {
     { name: 'Comfort', dataid: 2, checked: true },
     { name: 'Business', dataid: 3, checked: false },
     { name: 'Premium', dataid: 4, checked: false },
-  ]
+  ];
 
   const onBtnClick = (e) => {
-    onRateSelected(e.target.dataset.id)
-  }
+    onRateSelected(e.target.dataset.id);
+  };
 
   const rateButton = buttonsData.map(({ name, dataid, checked }) => {
     return (
@@ -25,15 +25,15 @@ const Rate = ({ onRateSelected }) => {
         />
         <label htmlFor={name}>{name}</label>
       </li>
-    )
-  })
+    );
+  });
 
   return (
     <div className="form__item">
       <div className="form__item-header">Choose your rate</div>
       <ul className="switcher">{rateButton}</ul>
     </div>
-  )
-}
+  );
+};
 
-export default Rate
+export default Rate;

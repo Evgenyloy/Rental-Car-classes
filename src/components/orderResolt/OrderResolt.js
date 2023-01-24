@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const OrderResolt = ({ totalPrice, timeRange, rate, optionsSum }) => {
   return (
     <form className="form form-right" action="#">
@@ -23,7 +25,14 @@ const OrderResolt = ({ totalPrice, timeRange, rate, optionsSum }) => {
         </output>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default OrderResolt
+OrderResolt.propTypes = {
+  totalPrice: PropTypes.number,
+  timeRange: PropTypes.string,
+  rate: PropTypes.number,
+  optionsSum: PropTypes.number,
+};
+
+export default OrderResolt;

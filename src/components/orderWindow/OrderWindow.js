@@ -1,6 +1,7 @@
-import Rate from '../rate/Rate'
-import HouseRange from '../hoursRange/HoursRange'
-import Options from '../options/Options'
+import PropTypes from 'prop-types';
+import Rate from '../rate/Rate';
+import HouseRange from '../hoursRange/HoursRange';
+import Options from '../options/Options';
 
 const OrderWindow = ({
   onRateSelected,
@@ -14,7 +15,14 @@ const OrderWindow = ({
       <HouseRange onTimeChange={onTimeChange} />
       <Options onOptionsSelect={onOptionsSelect} option={option} />
     </form>
-  )
-}
+  );
+};
 
-export default OrderWindow
+OrderWindow.propTypes = {
+  onRateSelected: PropTypes.func,
+  onTimeChange: PropTypes.func,
+  onOptionsSelect: PropTypes.func,
+  option: PropTypes.array,
+};
+
+export default OrderWindow;

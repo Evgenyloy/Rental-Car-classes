@@ -1,12 +1,12 @@
-import { Component } from 'react'
-import './App.css'
+import { Component } from 'react';
+import './App.css';
 
-import OrderWindow from '../orderWindow/OrderWindow'
-import OrderResolt from '../orderResolt/OrderResolt'
+import OrderWindow from '../orderWindow/OrderWindow';
+import OrderResolt from '../orderResolt/OrderResolt';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       tariff: [
         { name: 'economy', isSelected: false, id: '1', price: 10 },
@@ -45,53 +45,53 @@ class App extends Component {
         },
       ],
       rate: 15,
-      timeRange: 2,
+      timeRange: '2',
       optionsSum: 0,
       totalPrice: 0,
-    }
+    };
   }
 
   optionTogler = (id) => {
     this.setState(({ option }) => ({
       option: option.map((item) => {
         if (item.id === id) {
-          return { ...item, isSelected: !item.isSelected }
+          return { ...item, isSelected: !item.isSelected };
         }
-        return item
+        return item;
       }),
-    }))
+    }));
     this.setState(({ option }) => {
-      const optionPrice = option.filter((item) => item.isSelected)
+      const optionPrice = option.filter((item) => item.isSelected);
 
       let selectedOptions = optionPrice.reduce(
         (acc, number) => acc + number.price,
         0
-      )
-      return { optionsSum: selectedOptions }
-    })
-  }
+      );
+      return { optionsSum: selectedOptions };
+    });
+  };
 
   onOptionsSelect = (id, option) => {
     switch (option) {
       case 'option1':
-        this.optionTogler(id)
-        break
+        this.optionTogler(id);
+        break;
       case 'option2':
-        this.optionTogler(id)
-        break
+        this.optionTogler(id);
+        break;
       case 'option3':
-        this.optionTogler(id)
-        break
+        this.optionTogler(id);
+        break;
       case 'option4':
-        this.optionTogler(id)
-        break
+        this.optionTogler(id);
+        break;
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   componentDidMount() {
-    this.totalCost()
+    this.totalCost();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -101,36 +101,36 @@ class App extends Component {
       prevState.optionsSum !== this.state.optionsSum ||
       prevState.timeRange !== this.state.timeRange
     ) {
-      this.totalCost()
+      this.totalCost();
     }
   }
 
   totalCost = () => {
     let totalPrice =
-      this.state.timeRange * this.state.rate + this.state.optionsSum
-    this.setState({ totalPrice })
-  }
+      this.state.timeRange * this.state.rate + this.state.optionsSum;
+    this.setState({ totalPrice });
+  };
 
   onTimeChange = (timeRange) => {
-    this.setState({ timeRange })
-  }
+    this.setState({ timeRange });
+  };
 
   onRateSelected = (id) => {
     this.setState(({ tariff }) => ({
       tariff: tariff.map((item) => {
         if (item.id === id) {
-          return { ...item, isSelected: !item.isSelected }
+          return { ...item, isSelected: !item.isSelected };
         }
-        return { ...item, isSelected: false }
+        return { ...item, isSelected: false };
       }),
-    }))
+    }));
     this.setState(({ tariff }) => ({
       rate: tariff.filter((item) => item.isSelected)[0].price,
-    }))
-  }
+    }));
+  };
 
   render() {
-    const { totalPrice, timeRange, optionsSum, rate, option } = this.state
+    const { totalPrice, timeRange, optionsSum, rate, option } = this.state;
     return (
       <div className="container">
         <OrderWindow
@@ -146,8 +146,8 @@ class App extends Component {
           optionsSum={optionsSum}
         />
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
